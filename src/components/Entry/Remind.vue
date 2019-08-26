@@ -41,6 +41,11 @@ import { createNamespacedHelpers } from 'vuex';
 import { REMIND_PASSWORD } from '../../store/actions/pass';
 
 import { UTILS, MESSAGES } from '../../utils/constants';
+import {
+  validateEmail,
+  validatePassword,
+  setEmailError,
+} from '../../utils/validate';
 
 const { mapGetters } = createNamespacedHelpers('pass');
 
@@ -72,30 +77,14 @@ export default {
   },
 
   methods: {
-    validateEmail(email) {
-      // eslint-disable-next-line no-useless-escape
-      const regExp = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-      const validate = regExp.test(email);
-      return validate;
-    },
-
-    mailError(email) {
-      if (email.length === 0) {
-        return MESSAGES.email_required;
-      } else if (this.validateEmail(email)) {
-        return '';
-      }
-      return MESSAGES.email_must_be_valid;
-    },
-
     submit() {
       const usermail = this.$refs.usermailref.value;
-      this.mailErs = this.mailError(usermail);
-      if (this.validateEmail(usermail)) this.$store.dispatch('pass/REMIND_PASSWORD', usermail);
+      this.mailErs = setEmailError(usermail);
+      if (validateEmail(usermail)) this.$store.dispatch('pass/REMIND_PASSWORD', usermail);
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>

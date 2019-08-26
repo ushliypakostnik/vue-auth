@@ -11,17 +11,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/_stylebase.scss';
+  @import '../../styles/_stylebase.scss';
 
-.page {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  .page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  &--outer {
-    background: $color_background;
+    &--outer {
+      background: $color_background;
+    }
 
     .container {
       max-width: 300px;
@@ -29,5 +30,4 @@ export default {
       text-align: center;
     }
   }
-}
 </style>

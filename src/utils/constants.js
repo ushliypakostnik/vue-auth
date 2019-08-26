@@ -14,3 +14,8 @@ export const MESSAGES = {
   password_contain_digit: 'Password must contain at least one digit',
   passwords_do_not_match: 'Passwords do not match',
 };
+
+export const LOCAL = {
+  profile: 'profile',
+  token: 'token',
+}

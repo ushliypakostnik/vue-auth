@@ -1,26 +1,35 @@
 <template>
-  <div class="account">
-    <h1>Account</h1>
-    <h3>Email: <strong>{{ profile.usermail }}</strong></h3>
-    <h3>isVerify: <strong>{{ profile.isVerify }}</strong></h3>
-    <button
-      type="submit"
-      role="button"
-      aria-label="Submit button"
-      @click.prevent="logout"
-    >Sign Out</button>
-    <div
-      v-if="!profile.isVerify"
-      class="button-wrapper"
-    >
-      <button
-        type="submit"
-        role="button"
-        aria-label="Send Verify Email"
-        @click.prevent="send"
-      >Send Verify Email</button>
+  <Page class="account">
+    <div class="container">
+      <h1>Account</h1>
+      <h3>Email: <strong>{{ profile.usermail }}</strong></h3>
+      <h3>isVerify: <strong>{{ profile.isVerify }}</strong></h3>
+      <form
+        class="form form--vertical">
+        <fieldset class="form__group">
+          <button
+            type="submit"
+            role="button"
+            aria-label="Submit button"
+            @click.prevent="logout"
+          >Sign Out</button>
+        </fieldset>
+        <fieldset
+          v-if="!profile.isVerify"
+          class="form__group">
+          <button
+            type="submit"
+            role="button"
+            aria-label="Send Verify Email"
+            @click.prevent="send"
+          >Send Verify Email</button>
+          <div
+            class="form__message form__message--error"
+          ></div>
+        </fieldset>
+      </form>
     </div>
-  </div>
+  </Page>
 </template>
 
 <script>
@@ -37,6 +46,7 @@ import ScreenHelper from '../../utils/screen-helper';
 import { MESSAGES } from '../../utils/constants';
 
 import Loading from '../Utils/Loading.vue';
+import Page from '../Views/Page.vue';
 
 const { mapGetters } = createNamespacedHelpers('user');
 
@@ -44,6 +54,7 @@ export default {
   name: 'Account',
 
   components: {
+    Page,
     Loading,
   },
 
@@ -52,10 +63,7 @@ export default {
   },
 
   data: () => ({
-    drawer: null,
-    drawerMobile: false,
-    mini: true,
-    breackpointSM: ScreenHelper.SM,
+    message: '',
   }),
 
   beforeCreate() {
@@ -73,26 +81,25 @@ export default {
       if (this.email !== '' || !this.profile.isVerify) return true;
       return false;
     },
-
-    emailMessage() {
-      if (this.email !== '') return MESSAGES.resend_verify_email;
-      if (!this.profile.isVerify) return MESSAGES.verify_account;
-      return '';
-    },
   },
 
   methods: {
+    emailMessage() {
+      if (this.email !== '') return MESSAGES.resend_verify_email;
+      if (!this.profile.isVerify) return MESSAGES.verify_account;
+    },
+
     logout() {
       this.$store.dispatch('auth/AUTH_LOGOUT');
     },
+
     send() {
+      this.message = this.emailMessage();
       this.$store.dispatch('user/SEND_VERIFY_EMAIL');
     },
   },
 };
 </script>
 
-<style lang="scss" scoped>
-@import '../../styles/_stylebase.scss';
-
+<style scoped>
 </style>

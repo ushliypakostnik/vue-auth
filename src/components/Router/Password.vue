@@ -7,6 +7,7 @@
         <fieldset class="form__group">
           <input
             v-model="password1"
+            type="password"
             arial-label="Password"
             placeholder="Password"
             required
@@ -19,6 +20,7 @@
         <fieldset class="form__group">
           <input
             v-model="password2"
+            type="password"
             arial-label="Password again"
             placeholder="Password again"
             required
@@ -36,9 +38,8 @@
             @click.prevent="submit"
           >Set password</button>
           <div
-            v-if="error"
             class="form__message form__message--error"
-          >{{ error }}</div>
+          >{{ match }}</div>
         </fieldset>
       </form>
     </div>
@@ -51,7 +52,11 @@ import { createNamespacedHelpers } from 'vuex';
 // eslint-disable-next-line no-unused-vars
 import { SET_PASSWORD } from '../../store/actions/pass';
 
-import { UTILS, MESSAGES } from '../../utils/constants';
+import { MESSAGES } from '../../utils/constants';
+import {
+  validatePassword,
+  setPasswordError,
+} from '../../utils/validate';
 
 import Page from '../Views/Page.vue';
 import Logo from '../Views/Logo.vue';
@@ -69,8 +74,9 @@ export default {
   data: () => ({
     password1: '',
     password2: '',
-    pass1Ers,
-    pass2Ers,
+    pass1Ers: '',
+    pass2Ers: '',
+    match: '',
   }),
 
   computed: {
@@ -83,8 +89,10 @@ export default {
     submit() {
       const password = this.$refs.p1.value;
       const password2 = this.$refs.p2.value;
+      this.pass1Ers = setPasswordError(password);
+      this.pass2Ers = setPasswordError(password2);
       // eslint-disable-next-line
-      if (!!!(this.password1Errors + this.password2Errors)) {
+      if (validatePassword(password) && validatePassword(password2)) {
         if (password !== password2) {
           this.match = MESSAGES.passwords_do_not_match;
         } else {
@@ -99,5 +107,5 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
 </style>

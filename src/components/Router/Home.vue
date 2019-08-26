@@ -42,8 +42,8 @@ export default {
 </script>
 
 <style scoped>
-.home,
-.home > div {
-  min-height: 100vh;
-}
+  .home,
+  .home > div {
+    min-height: 100vh;
+  }
 </style>

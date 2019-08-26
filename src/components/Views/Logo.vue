@@ -12,12 +12,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../../styles/_stylebase.scss';
-.logo {
-  text-align: center;
+  @import '../../styles/_stylebase.scss';
 
-  h1 {
-    margin-top: $size / 2;
+  .logo {
+    text-align: center;
+
+    h1 {
+      margin-top: $size / 2;
+    }
   }
-}
 </style>
