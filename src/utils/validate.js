@@ -1,4 +1,4 @@
-import { UTILS, MESSAGES } from './constants';
+import { UTILS, MESSAGES } from '@/utils/constants';
 
 export const validateEmail = (email) => {
   // eslint-disable-next-line no-useless-escape

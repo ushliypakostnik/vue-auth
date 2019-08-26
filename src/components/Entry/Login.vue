@@ -38,7 +38,7 @@
         <div
           v-if="error"
           class="form__message form__message--error"
-        ></div>
+        >{{ error }}</div>
       </fieldset>
     </form>
   </div>
@@ -48,15 +48,14 @@
 import { createNamespacedHelpers } from 'vuex';
 
 // eslint-disable-next-line no-unused-vars
-import { AUTH_REQUEST } from '../../store/actions/auth';
+import { AUTH_REQUEST } from '@/store/actions/auth';
 
-import { UTILS, MESSAGES } from '../../utils/constants';
 import {
   validateEmail,
   validatePassword,
   setEmailError,
   setPasswordError,
-} from '../../utils/validate';
+} from '@/utils/validate';
 
 const { mapGetters } = createNamespacedHelpers('auth');
 
@@ -95,8 +94,9 @@ export default {
       this.mailErs = setEmailError(usermail);
       this.passErs = setPasswordError(password);
       // eslint-disable-next-line
-      if (validateEmail(usermail) && validatePassword(password))
+      if (validateEmail(usermail) && validatePassword(password)) {
         this.$store.dispatch('auth/AUTH_REQUEST', { usermail, password });
+      }
     },
   },
 };

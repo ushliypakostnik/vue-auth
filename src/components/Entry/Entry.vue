@@ -20,10 +20,10 @@
 </template>
 
 <script>
-import Login from './Login.vue';
-import Remind from './Remind.vue';
-import Page from '../Views/Page.vue';
-import Logo from '../Views/Logo.vue';
+import Login from '@/components/Entry/Login.vue';
+import Remind from '@/components/Entry/Remind.vue';
+import Page from '@/components/Views/Page.vue';
+import Logo from '@/components/Views/Logo.vue';
 
 export default {
   name: 'Entry',

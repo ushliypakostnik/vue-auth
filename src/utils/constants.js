@@ -1,5 +1,12 @@
 export const API_URL = process.env.API_URL || 'http://127.0.0.1:8082'; // eslint-disable-line
 
+export const COOKIES = {
+  TOKEN: {
+    name: 'token',
+    expires: 7,
+  },
+};
+
 export const UTILS = {
   min_password_lenght: 6,
 };
@@ -18,4 +25,4 @@ export const MESSAGES = {
 export const LOCAL = {
   profile: 'profile',
   token: 'token',
-}
+};

@@ -7,11 +7,11 @@ import {
   SEND_VERIFY_EMAIL,
   SEND_VERIFY_EMAIL_SUCCESS,
   SEND_VERIFY_EMAIL_ERROR,
-} from '../actions/user';
-import { AUTH_LOGOUT } from '../actions/auth';
+} from '@/store/actions/user';
+import { AUTH_LOGOUT } from '@/store/actions/auth';
 
-import api from '../../utils/api';
-import storage from '../../utils/storage'; // eslint-disable line
+import api from '@/utils/api';
+import storage from '@/utils/storage'; // eslint-disable line
 
 const state = {
   status: '',
@@ -22,7 +22,7 @@ const state = {
 /* eslint-disable no-shadow */
 const getters = {
   getProfile: state => state.profile,
-  isProfileLoaded: state => !!state.profile.name,
+  isProfileLoaded: state => !!state.profile.username,
   email: state => state.email,
 };
 /* eslint-enable no-shadow */

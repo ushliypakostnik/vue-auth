@@ -50,16 +50,16 @@
 import { createNamespacedHelpers } from 'vuex';
 
 // eslint-disable-next-line no-unused-vars
-import { SET_PASSWORD } from '../../store/actions/pass';
+import { SET_PASSWORD } from '@/store/actions/pass';
 
-import { MESSAGES } from '../../utils/constants';
+import { MESSAGES } from '@/utils/constants';
 import {
   validatePassword,
   setPasswordError,
-} from '../../utils/validate';
+} from '@/utils/validate';
 
-import Page from '../Views/Page.vue';
-import Logo from '../Views/Logo.vue';
+import Page from '@/components/Views/Page.vue';
+import Logo from '@/components/Views/Logo.vue';
 
 const { mapGetters } = createNamespacedHelpers('pass');
 

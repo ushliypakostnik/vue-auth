@@ -1,12 +1,13 @@
 import axios from 'axios';
+import Cookies from 'js-cookie';
 
-import { LOCAL } from './constants';
+import { COOKIES, LOCAL } from '@/utils/constants';
 
 // Auto auth
-const t = localStorage.getItem(LOCAL.token);
-if (t) {
+export const AutoAuth = Cookies.get(COOKIES.TOKEN.name);
+if (AutoAuth) {
   // eslint-disable-next-line dot-notation
-  axios.defaults.headers.common['Authorization'] = `Token ${t}`;
+  axios.defaults.headers.common['Authorization'] = `Token ${AutoAuth}`;
 }
 
 export default ({
@@ -14,13 +15,13 @@ export default ({
   // Auth
 
   setAuth: (token) => {
-    localStorage.setItem(LOCAL.token, token);
+    Cookies.set(COOKIES.TOKEN.name, token, { expires: COOKIES.TOKEN.expires });
     // eslint-disable-next-line dot-notation
     axios.defaults.headers.common['Authorization'] = `Token ${token}`;
   },
 
   deleteAuth: () => {
-    localStorage.removeItem(LOCAL.token);
+    Cookies.remove(COOKIES.TOKEN.name);
     // eslint-disable-next-line dot-notation
     delete axios.defaults.headers.common['Authorization'];
   },
@@ -29,7 +30,7 @@ export default ({
 
   setUserProfile: (responce) => {
     const { user } = responce.data;
-    localStorage.setItem(LOCAL.profile, user);
+    localStorage.setItem(LOCAL.profile, JSON.stringify(user));
   },
 
   deleteUserProfile: () => {

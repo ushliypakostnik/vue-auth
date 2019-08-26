@@ -40,12 +40,10 @@ import { createNamespacedHelpers } from 'vuex';
 // eslint-disable-next-line no-unused-vars
 import { REMIND_PASSWORD } from '../../store/actions/pass';
 
-import { UTILS, MESSAGES } from '../../utils/constants';
 import {
   validateEmail,
-  validatePassword,
   setEmailError,
-} from '../../utils/validate';
+} from '@/utils/validate';
 
 const { mapGetters } = createNamespacedHelpers('pass');
 

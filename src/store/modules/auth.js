@@ -4,16 +4,16 @@ import {
   AUTH_ERROR,
   AUTH_SUCCESS,
   AUTH_LOGOUT,
-} from '../actions/auth';
+} from '@/store/actions/auth';
 // eslint-disable-next-line no-unused-vars
-import { USER_REQUEST } from '../actions/user';
+import { USER_REQUEST } from '@/store/actions/user';
 
-import api from '../../utils/api';
-import storage from '../../utils/storage'; // eslint-disable line
+import api from '@/utils/api';
+import storage, { AutoAuth } from '@/utils/storage'; // eslint-disable line
 
 const state = {
   status: '',
-  token: localStorage.getItem('user-token') || '',
+  token: AutoAuth || '',
   error: '',
 };
 
@@ -75,7 +75,7 @@ const mutations = {
   },
   [AUTH_ERROR]: (state, err) => {
     state.status = 'error';
-    state.error = err.response.data.error;
+    state.error = err.response.data.error.message;
   },
   [AUTH_LOGOUT]: (state) => {
     state.token = '';

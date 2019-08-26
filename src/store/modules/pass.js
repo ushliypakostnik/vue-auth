@@ -5,14 +5,14 @@ import {
   REMIND_PASSWORD_ERROR,
   SET_PASSWORD,
   SET_PASSWORD_ERROR,
-} from '../actions/pass';
+} from '@/store/actions/pass';
 // eslint-disable-next-line no-unused-vars
-import { AUTH_SUCCESS } from '../actions/auth';
+import { AUTH_SUCCESS } from '@/store/actions/auth';
 
-import router from '../../router';
+import router from '@/router';
 
-import api from '../../utils/api';
-import storage from '../../utils/storage'; // eslint-disable line
+import api from '@/utils/api';
+import storage from '@/utils/storage'; // eslint-disable line
 
 const state = {
   error: '',

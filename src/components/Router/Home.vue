@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <Loading v-if="loading"/>
+    <Loading v-if="loading" />
     <div v-if="isAuthenticated">
       <Account />
     </div>
@@ -13,9 +13,9 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-import Loading from '../Utils/Loading.vue';
-import Entry from '../Entry/Entry.vue';
-import Account from '../Account/Account.vue';
+import Loading from '@/components/Utils/Loading.vue';
+import Entry from '@/components/Entry/Entry.vue';
+import Account from '@/components/Account/Account.vue';
 
 const { mapGetters } = createNamespacedHelpers('auth');
 
