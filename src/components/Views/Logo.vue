@@ -1,6 +1,10 @@
 <template>
   <div class="logo">
-    <img src="../../assets/logo.png" width="70px">
+    <img
+      src="../../assets/logo.png"
+      width="70px"
+      class="pulse-slow"
+      alt="Vue logo">
     <h1>Vue cli based frontend boilerplate</h1>
   </div>
 </template>
