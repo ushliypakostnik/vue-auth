@@ -11,7 +11,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '@/styles/_stylebase.scss';
+  @import "@/styles/_stylebase.scss";
 
   .page {
     min-height: 100vh;

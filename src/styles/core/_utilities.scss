@@ -15,5 +15,5 @@
 // Amimation class example
 .pulse {
   $fadetransition-duration: $transition-duration * 2;
-  @include animation('pulse #{$transition-duration} infinite', 'fadeOn #{$fadetransition-duration} forwards');
+  @include animation("pulse #{$transition-duration} infinite", "fadeOn #{$fadetransition-duration} forwards");
 }

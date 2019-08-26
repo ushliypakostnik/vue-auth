@@ -10,7 +10,7 @@
       width="40px"
       height="40px"
       viewBox="0 0 50 50"
-      style="enable-background:new 0 0 50 50;"
+      style="enable-background: new 0 0 50 50;"
       xml:space="preserve">
       <path
         fill="#000"
@@ -36,9 +36,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  @import '@/styles/_stylebase.scss';
+  @import "@/styles/_stylebase.scss";
 
-  .loader{
+  .loader {
     height: 100px;
     width: 100%;
     text-align: center;
@@ -47,6 +47,7 @@ export default {
     display: inline-block;
     vertical-align: top;
   }
+
   svg path {
     fill: $color_primary;
   }
