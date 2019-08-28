@@ -1,4 +1,6 @@
-// Main Elements
+// Main Elements (easy normalize)
+//////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
 // stylelint-disable no-descending-specificity
 
@@ -30,6 +32,7 @@ body {
   }
 }
 
+
 // No outline on focus controls!!!
 button,
 input,
@@ -43,6 +46,7 @@ a {
     outline: none !important; // stylelint-disable-line declaration-no-important
   }
 }
+
 
 // All blocks to border-box!!!
 main,
@@ -61,11 +65,13 @@ a {
   box-sizing: border-box;
 }
 
+
 // Links
 a {
   text-decoration: none;
   @include link-style($color_link, $color_link-hover);
 }
+
 
 // Buttons
 
@@ -77,6 +83,7 @@ button {
   @include btn-color($color_white, $color_primary);
   @include text($font-family_sans, $font-size_normal, $font-weight_sans_regular);
 }
+
 
 // Controls
 
@@ -93,6 +100,7 @@ textarea {
   max-width: 100%;
 }
 
+
 // Lists
 ul {
   list-style-type: none;
@@ -104,6 +112,7 @@ ul {
     @extend %list-style;
   }
 }
+
 
 // Sections
 main,
@@ -117,6 +126,7 @@ fieldset {
   margin: 0;
   padding: 0;
 }
+
 
 // Others
 

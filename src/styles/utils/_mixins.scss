@@ -8,48 +8,48 @@
 // Breackpoins in styles/utils/_variables.scss
 
 @mixin lg {
-  @media (min-width: $breackpoint_lg) {
+  @media only screen and (min-width: $breackpoint_lg) {
     @content;
   }
 }
 
 @mixin not-lg {
-  @media (max-width: $breackpoint_md_max) {
+  @media only screen and (max-width: $breackpoint_md_max) {
     @content;
   }
 }
 
 @mixin sm {
-  @media (min-width: $breackpoint_sm) and (max-width: $breackpoint_sm_max) {
+  @media only screen and (min-width: $breackpoint_sm) and (max-width: $breackpoint_sm_max) {
     @content;
   }
 }
 
 @mixin xs {
-  @media (max-width: $breackpoint_xs_max) {
+  @media only screen and (max-width: $breackpoint_xs_max) {
     @content;
   }
 }
 
 @mixin not-xs {
-  @media (min-width: $breackpoint_sm) {
+  @media only screen and (min-width: $breackpoint_sm) {
     @content;
   }
 }
 
 @mixin sm-and-xs {
-  @media (max-width: $breackpoint_sm_max) {
+  @media only screen and (max-width: $breackpoint_sm_max) {
     @content;
   }
 }
 
 @mixin min {
-  @media (max-width: $breackpoint-xs) {
+  @media only screen and (max-width: $breackpoint-xs) {
     @content;
   }
 }
 
-// Retina
+// Retina 2x
 @mixin retina {
   @media only screen and (-Webkit-min-device-pixel-ratio: 1.5),
     only screen and (-moz-min-device-pixel-ratio: 1.5),
@@ -71,7 +71,7 @@
 
 @mixin link-style($color, $color-hover) {
   will-change: color;
-  @include transition(color);
+  @include transitions(color);
 
   &,
   &:focus {
@@ -88,7 +88,7 @@
   background-color: $background;
   color: $color;
   will-change: background;
-  @include transition(background);
+  @include transitions(background);
 
   &:hover,
   &:active {
@@ -103,7 +103,7 @@
 
 // Multi-transition
 // Pass in any number of transitions
-@mixin transition($transitions...) {
+@mixin transitions($transitions...) {
   $unfoldedTransitions: ();
 
   @each $transition in $transitions {

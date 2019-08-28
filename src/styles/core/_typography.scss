@@ -1,6 +1,7 @@
 // Typography
 //////////////////////////////////////////////////////
 //////////////////////////////////////////////////////
+//////////////////////////////////////////////////////
 
 // Typographic Variables
 //////////////////////////////////////////////////////
@@ -32,10 +33,11 @@ $font-family_sans: sans-serif;
 $font-weight_sans_regular: 400;
 $font-weight_sans_bold: 700;
 
+
 // Universal Typographic Mixin
 //////////////////////////////////////////////////////
 
-// Используем одну, только одну, Карл, универсальную примесь для всех случаев!!!!!!!!!!
+// We use one, only one, Karl, a universal mixin for all cases !!!!!!!!!!
 
 @mixin text($font-family, $font-size, $font-weight) {
   font-family: $font-family;
@@ -60,14 +62,14 @@ $font-weight_sans_bold: 700;
 // Typographic Base
 //////////////////////////////////////////////////////
 
-// Обычный параграф
+// Regular paragraph
 p {
   color: $color_text;
   margin-bottom: $size;
   @include text($font-family_sans, $font-size_xsmall, $font-weight_sans_regular);
 }
 
-// Заголовки по умолчанию
+// Default headers
 
 h1 {
   @include text($font-family_sans, $font-size_large, $font-weight_sans_bold);
