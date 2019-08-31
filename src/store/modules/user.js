@@ -29,17 +29,21 @@ const getters = {
 
 const actions = {
   [USER_REQUEST]: ({ commit, dispatch }) => {
-    commit(USER_REQUEST);
-    api.getUserProfile()
-      .then((responce) => {
-        commit(USER_SUCCESS, responce);
-        storage.setUserProfile(responce);
-      })
-      .catch(() => {
-        commit(USER_ERROR);
-        // if resp is unauthorized, logout, to
-        dispatch('auth/AUTH_LOGOUT', null, { root: true });
-      });
+    return new Promise((resolve, reject) => {
+      commit(USER_REQUEST);
+      api.getUserProfile()
+        .then((response) => {
+          commit(USER_SUCCESS, response);
+          storage.setUserProfile(response);
+          resolve(response);
+        })
+        .catch((err) => {
+          commit(USER_ERROR);
+          // if resp is unauthorized, logout, to
+          dispatch('auth/AUTH_LOGOUT', null, { root: true });
+          reject(err);
+        });
+    });
   },
   [SEND_VERIFY_EMAIL]: ({ commit }) => {
     const usermail = localStorage.getItem('user-mail');
@@ -62,9 +66,9 @@ const mutations = {
   [USER_REQUEST]: (state) => {
     state.status = 'loading';
   },
-  [USER_SUCCESS]: (state, responce) => {
+  [USER_SUCCESS]: (state, response) => {
     state.status = 'success';
-    Vue.set(state, 'profile', responce.data.user);
+    Vue.set(state, 'profile', response.data.user);
   },
   [USER_ERROR]: (state) => {
     state.status = 'error';

@@ -24,5 +24,4 @@ export const MESSAGES = {
 
 export const LOCAL = {
   profile: 'profile',
-  token: 'token',
 };
