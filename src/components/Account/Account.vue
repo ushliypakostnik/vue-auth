@@ -59,10 +59,6 @@ export default {
     Loading,
   },
 
-  props: {
-    source: String,
-  },
-
   data: () => ({
     message: '',
   }),
