@@ -1,4 +1,10 @@
-export const API_URL = process.env.API_URL || 'http://127.0.0.1:8082'; // eslint-disable-line
+const isProd = process.env.NODE_ENV === 'production';
+const apiUrl = process.env.API_URL;
+const clientType = process.env.CLIENT_TYPE;
+
+export const API_URL = isProd ? apiUrl || 'http://express-auth.kafedra.org' : apiUrl || 'http://127.0.0.1:8082';
+
+export const CLIENT = isProd ? clientType || 'vue' : clientType || 'vue-development';
 
 export const COOKIES = {
   TOKEN: {
