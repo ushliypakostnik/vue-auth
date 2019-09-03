@@ -21,6 +21,11 @@ export default ({
   getLogout: () =>
     axios.get(`${API_URL}/api/user/logout`), // eslint-disable-line implicit-arrow-linebreak
 
+  // Verify
+
+  postVerify: id =>
+    axios.post(`${API_URL}/api/user/verify`, { id }), // eslint-disable-line implicit-arrow-linebreak
+
   // User
 
   getUserProfile: () =>

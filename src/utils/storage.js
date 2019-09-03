@@ -1,10 +1,10 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-import { COOKIES, LOCAL, CLIENT } from '@/utils/constants';
+import { COOKIES, LOCAL, CLIENT_HOST } from '@/utils/constants';
 
 // Client type
-axios.defaults.headers.common['Client'] = `Client ${CLIENT}`;
+axios.defaults.headers.common['Client'] = `${CLIENT_HOST}`;
 
 // Auto auth
 export const AutoAuth = Cookies.get(COOKIES.TOKEN.name);
