@@ -30,7 +30,7 @@ const getters = {
 
 const actions = {
   // eslint-disable-next-line arrow-body-style
-  [REMIND_PASSWORD]: ({ commit }, email,) => {
+  [REMIND_PASSWORD]: ({ commit }, email) => {
     return new Promise((resolve, reject) => {
       api.postRemindPassword(email)
         .then((response) => {

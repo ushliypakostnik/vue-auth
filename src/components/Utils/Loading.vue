@@ -42,8 +42,7 @@ export default {
     height: 100px;
     width: 100%;
     text-align: center;
-    padding: 1em;
-    margin: 0 auto 1em;
+    margin: 0 auto;
     display: inline-block;
     vertical-align: top;
 

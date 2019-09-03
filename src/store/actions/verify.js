@@ -1,0 +1,2 @@
+export const SET_VERIFY = 'SET_VERIFY';
+export const SET_VERIFY_RESULT = 'SET_VERIFY_RESULT';

@@ -1,6 +1,12 @@
 <template>
   <div class="home">
-    <Loading v-if="loading" />
+    <Page
+      v-if="loading"
+      class="page--outer">
+      <div class="container">
+        <Loading />
+      </div>
+    </Page>
     <div v-if="isAuthenticated">
       <Account />
     </div>
@@ -13,6 +19,7 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
+import Page from '@/components/Views/Page.vue';
 import Loading from '@/components/Utils/Loading.vue';
 import Entry from '@/components/Entry/Entry.vue';
 import Account from '@/components/Account/Account.vue';
@@ -23,6 +30,7 @@ export default {
   name: 'Home',
 
   components: {
+    Page,
     Loading,
     Entry,
     Account,
