@@ -10,6 +10,7 @@ COPY . .
 
 RUN npm run build && rm -rf node_module
 
+
 FROM nginx:stable-alpine as production-stage
 
 COPY --from=build-stage /projects/github/vue-auth/dist /usr/share/nginx/html
