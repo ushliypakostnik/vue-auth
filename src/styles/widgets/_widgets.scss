@@ -4,13 +4,19 @@
 //////////////////////////////////////////////////////
 
 .form {
+  margin-bottom: $gutter;
+  padding: $gutter $gutter ($gutter / 2) $gutter;
+  background: $color_white;
+  border: 1px solid $color_border;
+  border-radius: $border-radius_large;
+
   &__group {
     position: relative;
     text-align: center;
+    padding-bottom: round($input_height / 1.5);
 
-    input,
-    button {
-      margin-bottom: round($input_height / 1.5);
+    button + button {
+      margin-top: $gutter / 2;
     }
   }
 
@@ -36,5 +42,15 @@
     &--success {
       color: $color_success;
     }
+  }
+}
+
+.btn {
+  &--fb {
+    @include btn-color($color_white, $color_fb);
+  }
+
+  &--vk {
+    @include btn-color($color_white, $color_vk);
   }
 }

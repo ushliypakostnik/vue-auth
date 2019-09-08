@@ -26,8 +26,14 @@ export default {
 
     .container {
       max-width: 300px;
-      margin-top: -15%;
+      margin-bottom: 12vh;
       text-align: center;
+
+      @include xs {
+        padding-top: $gutter;
+        padding-bottom: $gutter;
+        margin-bottom: 0;
+      }
     }
   }
 </style>

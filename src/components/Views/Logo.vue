@@ -2,10 +2,10 @@
   <div class="logo">
     <img
       src="../../assets/logo.png"
-      width="70px"
+      width="60px"
       class="pulse-slow"
       alt="Vue logo">
-    <h1>Vue cli based frontend boilerplate</h1>
+    <h1>Vue cli based<br />frontend boilerplate</h1>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     text-align: center;
 
     h1 {
-      margin-top: $size / 2;
+      margin-top: 0
     }
   }
 </style>

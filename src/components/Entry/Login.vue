@@ -31,10 +31,29 @@
       <fieldset class="form__group">
         <button
           type="submit"
-          role="button"
           aria-label="Submit button"
           @click.prevent="submit"
         >Login / Registration</button>
+        <div
+          v-if="error"
+          class="form__message form__message--error"
+        >{{ error }}</div>
+        <button
+          type="button"
+          class="btn--fb"
+          aria-label="Facebook button"
+          @click.prevent="loginFB"
+        >Via Facebook</button>
+        <div
+          v-if="errorFB"
+          class="form__message form__message--error"
+        >{{ errorFB }}</div>
+        <button
+          type="button"
+          class="btn--vk"
+          aria-label="Vkontakte button"
+          @click.prevent="loginVK"
+        >Via Vkontakte</button>
         <div
           v-if="error"
           class="form__message form__message--error"
@@ -48,7 +67,11 @@
 import { createNamespacedHelpers } from 'vuex';
 
 // eslint-disable-next-line no-unused-vars
-import { AUTH_REQUEST } from '@/store/actions/auth';
+import {
+  AUTH_REQUEST,
+  AUTH_FACEBOOK_REQUEST,
+  AUTH_VKONTAKTE_REQUEST
+} from '@/store/actions/auth';
 
 import {
   validateEmail,
@@ -98,6 +121,14 @@ export default {
         this.$store.dispatch('auth/AUTH_REQUEST', { usermail, password });
       }
     },
+
+    loginFB() {
+      this.$store.dispatch('auth/AUTH_FACEBOOK_REQUEST');
+    },
+
+    loginVK() {
+      this.$store.dispatch('auth/AUTH_VKONTAKTE_REQUEST');
+    }
   },
 };
 </script>

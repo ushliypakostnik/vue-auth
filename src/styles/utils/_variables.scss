@@ -26,9 +26,9 @@ $text-shadow_size: 4px;
 // Sizes
 //////////////////////////////////////////////////////
 
-$size: 20px;
+$gutter: 20px;
 
-$input_height: $size * 2;
+$input_height: $gutter * 2;
 
 
 // Colors
@@ -46,10 +46,6 @@ $color_blue: #2d84c6;
 $color_green: #21b499;
 $color_orange: #f0ac61;
 $color_red: #ef5a99;
-
-//Grays
-
-$color_gray:  #cfdae0;
 
 // Main
 
@@ -70,6 +66,7 @@ $color_dark_alfa: rgba($color_dark, 0.66);
 // Text
 
 $color_text: #6c7a89;
+$color_gray:  lighten($color_text, ($fade-percent * 5.5));
 
 // Links
 
@@ -79,11 +76,11 @@ $color_link-hover: #44529c;
 // Shadows
 
 $color_shadow: rgba($color_black, 0.15);
-$color_text-shadow: $color_shadow;
 
 // Brands
 
 $color_fb: #3b5998;
+$color_vk: #45668e;
 
 // Functional
 
@@ -139,13 +136,13 @@ $content-container_md: 940px;
 $content-container_lg: 1140px;
 
 // Small screen / tablet
-$container_sm:                 ($content-container_sm + $size);
+$container_sm:                 ($content-container_sm + $gutter);
 
 // Medium screen / desktop
-$container_md:                 ($content-container_md + $size);
+$container_md:                 ($content-container_md + $gutter);
 
 // Large screen / wide desktop
-$container_lg:                 ($content-container_lg + $size);
+$container_lg:                 ($content-container_lg + $gutter);
 
 
 // Elements
@@ -159,4 +156,4 @@ $border-radius_large: 4px;
 // Buttons
 
 $btn_padding_horizontal_base: 6px;
-$btn_padding_vertical_base: $size * 1.5;
+$btn_padding_vertical_base: $gutter * 1.5;

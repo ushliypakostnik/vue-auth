@@ -65,7 +65,7 @@ $font-weight_sans_bold: 700;
 // Regular paragraph
 p {
   color: $color_text;
-  margin-bottom: $size;
+  margin-bottom: $gutter;
   @include text($font-family_sans, $font-size_xsmall, $font-weight_sans_regular);
 }
 

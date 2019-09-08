@@ -9,6 +9,12 @@ export default ({
   postAuth: user =>
     axios.post(`${API_URL}/api/user/login`, { user }), // eslint-disable-line implicit-arrow-linebreak
 
+  getFBAuth: () =>
+    axios.get(`${API_URL}/api/user/facebook`), // eslint-disable-line implicit-arrow-linebreak
+
+  getVKAuth: () =>
+    axios.get(`${API_URL}/api/user/vkontakte`), // eslint-disable-line implicit-arrow-linebreak
+
   postVerifyEmail: usermail =>
     axios.post(`${API_URL}/api/user/send-verify-email`, { usermail }), // eslint-disable-line implicit-arrow-linebreak
 

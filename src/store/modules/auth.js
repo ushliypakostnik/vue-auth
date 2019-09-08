@@ -1,6 +1,8 @@
 /* eslint-disable promise/param-names */
 import {
   AUTH_REQUEST,
+  AUTH_FACEBOOK_REQUEST,
+  AUTH_VKONTAKTE_REQUEST,
   AUTH_ERROR,
   AUTH_SUCCESS,
   AUTH_LOGOUT,
@@ -45,6 +47,42 @@ const actions = {
         });
     });
   },
+  [AUTH_FACEBOOK_REQUEST]: ({ commit, dispatch }) => {
+    return new Promise((resolve, reject) => {
+      commit(AUTH_FACEBOOK_REQUEST);
+      api.postFBAuth(user)
+        .then((response) => {
+          const { token } = response.data.user;
+          storage.setAuth(token);
+          commit(AUTH_SUCCESS, token);
+          dispatch('user/USER_REQUEST', null, { root: true });
+          resolve(response);
+        })
+        .catch((err) => {
+          commit(AUTH_ERROR, err);
+          storage.deleteAuth();
+          reject(err);
+        });
+    });
+  },
+  [AUTH_VKONTAKTE_REQUEST]: ({ commit, dispatch }) => {
+    return new Promise((resolve, reject) => {
+      commit(AUTH_VKONTAKTE_REQUEST);
+      api.postVKAuth(user)
+        .then((response) => {
+          const { token } = response.data.user;
+          storage.setAuth(token);
+          commit(AUTH_SUCCESS, token);
+          dispatch('user/USER_REQUEST', null, { root: true });
+          resolve(response);
+        })
+        .catch((err) => {
+          commit(AUTH_ERROR, err);
+          storage.deleteAuth();
+          reject(err);
+        });
+    });
+  },
   // eslint-disable-next-line arrow-body-style
   [AUTH_LOGOUT]: ({ commit }) => {
     return new Promise((resolve, reject) => {
@@ -66,11 +104,16 @@ const actions = {
 const mutations = {
   [AUTH_REQUEST]: (state) => {
     state.status = 'loading';
-    state.error = '';
+  },
+  [AUTH_FACEBOOK_REQUEST]: (state) => {
+    state.status = 'loading';
+  },
+  [AUTH_VKONTAKTE_REQUEST]: (state) => {
+    state.status = 'loading';
   },
   [AUTH_SUCCESS]: (state, token) => {
-    state.status = 'success';
     state.token = token;
+    state.status = 'success';
     state.error = '';
   },
   [AUTH_ERROR]: (state, err) => {
@@ -80,6 +123,7 @@ const mutations = {
   [AUTH_LOGOUT]: (state) => {
     state.token = '';
     state.error = '';
+    state.status = '';
   },
 };
 /* eslint-enable no-shadow */

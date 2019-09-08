@@ -11,7 +11,6 @@
         <fieldset class="form__group">
           <button
             type="submit"
-            role="button"
             aria-label="Submit button"
             @click.prevent="logout"
           >Sign Out</button>
@@ -21,7 +20,6 @@
           class="form__group">
           <button
             type="submit"
-            role="button"
             aria-label="Send Verify Email"
             @click.prevent="send"
           >Send Verify Email</button>

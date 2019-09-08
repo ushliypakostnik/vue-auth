@@ -4,6 +4,7 @@ import Cookies from 'js-cookie';
 import { COOKIES, LOCAL, CLIENT_HOST } from '@/utils/constants';
 
 // Client type
+// eslint-disable-next-line dot-notation
 axios.defaults.headers.common['Client'] = `${CLIENT_HOST}`;
 
 // Auto auth

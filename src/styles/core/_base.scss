@@ -91,7 +91,7 @@ input {
   height: $input_height;
   border: 1px solid $color_border;
   border-radius: $border-radius_small;
-  padding: 0 ($size / 2);
+  padding: 0 ($gutter / 2);
   @include text($font-family_sans, $font-size_normal, $font-weight_sans_regular);
 }
 
@@ -143,7 +143,7 @@ iframe {
 
 /* Let's get this party started */
 ::-webkit-scrollbar {
-    width: $size / 2;
+    width: $gutter / 2;
 }
 
 /* Track */
