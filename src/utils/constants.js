@@ -24,7 +24,7 @@ export const MESSAGES = {
   email_required: 'E-mail is required',
   password_required: 'Password is required',
   password_min_lenght: `Password must be at least ${UTILS.min_password_lenght} characters`,
-  password_contain_digit: 'Password must contain at least one digit',
+  password_contain_digit: 'Password must contain lowercase latin letters and at least one digit',
   passwords_do_not_match: 'Passwords do not match',
 };
 

@@ -37,7 +37,7 @@ const actions = {
           const { token } = response.data.user;
           storage.setAuth(token);
           commit(AUTH_SUCCESS, token);
-          dispatch('user/USER_REQUEST', null, { root: true });
+          // dispatch('user/USER_REQUEST', null, { root: true });
           resolve(response);
         })
         .catch((err) => {
@@ -50,17 +50,11 @@ const actions = {
   [AUTH_FACEBOOK_REQUEST]: ({ commit, dispatch }) => {
     return new Promise((resolve, reject) => {
       commit(AUTH_FACEBOOK_REQUEST);
-      api.postFBAuth(user)
+      api.postFBAuth()
         .then((response) => {
-          const { token } = response.data.user;
-          storage.setAuth(token);
-          commit(AUTH_SUCCESS, token);
-          dispatch('user/USER_REQUEST', null, { root: true });
           resolve(response);
         })
         .catch((err) => {
-          commit(AUTH_ERROR, err);
-          storage.deleteAuth();
           reject(err);
         });
     });
@@ -68,17 +62,11 @@ const actions = {
   [AUTH_VKONTAKTE_REQUEST]: ({ commit, dispatch }) => {
     return new Promise((resolve, reject) => {
       commit(AUTH_VKONTAKTE_REQUEST);
-      api.postVKAuth(user)
+      api.postVKAuth()
         .then((response) => {
-          const { token } = response.data.user;
-          storage.setAuth(token);
-          commit(AUTH_SUCCESS, token);
-          dispatch('user/USER_REQUEST', null, { root: true });
           resolve(response);
         })
         .catch((err) => {
-          commit(AUTH_ERROR, err);
-          storage.deleteAuth();
           reject(err);
         });
     });
@@ -118,7 +106,7 @@ const mutations = {
   },
   [AUTH_ERROR]: (state, err) => {
     state.status = 'error';
-    state.error = err.response.data.error.message;
+    state.error = err.response.data.message;
   },
   [AUTH_LOGOUT]: (state) => {
     state.token = '';

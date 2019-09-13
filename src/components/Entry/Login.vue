@@ -44,20 +44,12 @@
           aria-label="Facebook button"
           @click.prevent="loginFB"
         >Via Facebook</button>
-        <div
-          v-if="errorFB"
-          class="form__message form__message--error"
-        >{{ errorFB }}</div>
         <button
           type="button"
           class="btn--vk"
           aria-label="Vkontakte button"
           @click.prevent="loginVK"
         >Via Vkontakte</button>
-        <div
-          v-if="error"
-          class="form__message form__message--error"
-        >{{ error }}</div>
       </fieldset>
     </form>
   </div>
@@ -123,11 +115,11 @@ export default {
     },
 
     loginFB() {
-      this.$store.dispatch('auth/AUTH_FACEBOOK_REQUEST');
+      // this.$store.dispatch('auth/AUTH_FACEBOOK_REQUEST');
     },
 
     loginVK() {
-      this.$store.dispatch('auth/AUTH_VKONTAKTE_REQUEST');
+      // this.$store.dispatch('auth/AUTH_VKONTAKTE_REQUEST');
     }
   },
 };

@@ -51,7 +51,7 @@ const actions = {
         .then((response) => {
           storage.setAuth(token);
           commit('auth/AUTH_SUCCESS', token, { root: true });
-          dispatch('user/USER_REQUEST', null, { root: true });
+          // dispatch('user/USER_REQUEST', null, { root: true });
           router.replace({ name: 'Home' });
           resolve(response);
         })
@@ -67,14 +67,14 @@ const actions = {
 const mutations = {
   [REMIND_PASSWORD_SUCCESS]: (state, response) => {
     state.error = '';
-    state.success = response.data.success.message;
+    state.success = response.data.message;
   },
   [REMIND_PASSWORD_ERROR]: (state, err) => {
     state.success = '';
-    state.error = err.response.data.error;
+    state.error = err.response.data.message;
   },
   [SET_PASSWORD_ERROR]: (state, err) => {
-    state.error2 = err.response.data.error;
+    state.error2 = err.response.data.message;
   },
 };
 /* eslint-enable no-shadow */

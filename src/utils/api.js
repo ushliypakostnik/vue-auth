@@ -2,43 +2,45 @@ import axios from 'axios';
 
 import { API_URL } from '@/utils/constants';
 
+// eslint-disable implicit-arrow-linebreak
 export default ({
 
   // Auth
 
   postAuth: user =>
-    axios.post(`${API_URL}/api/user/login`, { user }), // eslint-disable-line implicit-arrow-linebreak
+    axios.post(`${API_URL}/api/user/login`, { user }),
 
   getFBAuth: () =>
-    axios.get(`${API_URL}/api/user/facebook`), // eslint-disable-line implicit-arrow-linebreak
+    axios.get(`${API_URL}/api/user/facebook`),
 
   getVKAuth: () =>
-    axios.get(`${API_URL}/api/user/vkontakte`), // eslint-disable-line implicit-arrow-linebreak
+    axios.get(`${API_URL}/api/user/vkontakte`),
 
   postVerifyEmail: usermail =>
-    axios.post(`${API_URL}/api/user/send-verify-email`, { usermail }), // eslint-disable-line implicit-arrow-linebreak
+    axios.post(`${API_URL}/api/user/send-verify-email`, { usermail }),
 
   postRemindPassword: usermail =>
-    axios.post(`${API_URL}/api/user/remind`, { usermail }), // eslint-disable-line implicit-arrow-linebreak
+    axios.post(`${API_URL}/api/user/remind`, { usermail }),
 
   postNewPassword: user =>
-    axios.post(`${API_URL}/api/user/password`, { user }), // eslint-disable-line implicit-arrow-linebreak
+    axios.post(`${API_URL}/api/user/password`, { user }),
 
   getLogout: () =>
-    axios.get(`${API_URL}/api/user/logout`), // eslint-disable-line implicit-arrow-linebreak
+    axios.get(`${API_URL}/api/user/logout`),
 
   // Verify
 
   postVerify: id =>
-    axios.post(`${API_URL}/api/user/verify`, { id }), // eslint-disable-line implicit-arrow-linebreak
+    axios.post(`${API_URL}/api/user/verify`, { id }),
 
   // User
 
   getUserProfile: () =>
-    axios.get(`${API_URL}/api/user/profile`), // eslint-disable-line implicit-arrow-linebreak
+    axios.get(`${API_URL}/api/user/profile`),
 
   // Test
 
   getTest: () =>
-    axios.get(`${API_URL}/test`), // eslint-disable-line implicit-arrow-linebreak
+    axios.get(`${API_URL}/test`),
 });
+// eslint-enable implicit-arrow-linebreak

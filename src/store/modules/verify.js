@@ -22,11 +22,11 @@ const actions = {
     return new Promise((resolve, reject) => {
       api.postVerify(id)
         .then((response) => {
-          commit(SET_VERIFY_RESULT, response.data.success.message);
+          commit(SET_VERIFY_RESULT, response.data.message);
           resolve(response);
         })
         .catch((err) => {
-          commit(SET_VERIFY_RESULT, err.response.data.error.message);
+          commit(SET_VERIFY_RESULT, err.response.data.message);
           reject(err);
         });
     });

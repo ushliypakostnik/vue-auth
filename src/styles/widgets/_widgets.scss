@@ -4,6 +4,7 @@
 //////////////////////////////////////////////////////
 
 .form {
+  min-width: 300px;
   margin-bottom: $gutter;
   padding: $gutter $gutter ($gutter / 2) $gutter;
   background: $color_white;
@@ -13,7 +14,7 @@
   &__group {
     position: relative;
     text-align: center;
-    padding-bottom: round($input_height / 1.5);
+    padding-bottom: $input_height - 5px;
 
     button + button {
       margin-top: $gutter / 2;
@@ -34,6 +35,7 @@
     width: 100%;
     top: $input_height * 1.1;
     @include text($font-family_sans, $font-size_xsmall, $font-weight_sans_regular);
+    line-height: floor($line-height_xsmall * 0.66);
 
     &--error {
       color: $color_error;
