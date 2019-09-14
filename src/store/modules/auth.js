@@ -6,7 +6,6 @@ import {
   AUTH_SUCCESS,
   AUTH_LOGOUT,
 } from '@/store/actions/auth';
-
 /* eslint-disable no-unused-vars */
 import { USER_REQUEST } from '@/store/actions/user';
 /* eslint-enable no-unused-vars */
