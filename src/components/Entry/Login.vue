@@ -28,16 +28,7 @@
           class="form__message form__message--error"
         >{{ passErs }}</div>
       </fieldset>
-      <fieldset class="form__group">
-        <button
-          type="submit"
-          aria-label="Submit button"
-          @click.prevent="submit"
-        >Login / Registration</button>
-        <div
-          v-if="error"
-          class="form__message form__message--error"
-        >{{ error }}</div>
+      <fieldset class="form__group form__group--social">
         <button
           type="button"
           class="btn--fb"
@@ -50,6 +41,17 @@
           aria-label="Vkontakte button"
           @click.prevent="loginVK"
         >Via Vkontakte</button>
+      </fieldset>
+      <fieldset class="form__group">
+        <button
+          type="submit"
+          aria-label="Submit button"
+          @click.prevent="submit"
+        >Login / Registration</button>
+        <div
+          v-if="error"
+          class="form__message form__message--error"
+        >{{ error }}</div>
       </fieldset>
     </form>
   </div>

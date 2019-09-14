@@ -19,6 +19,10 @@
     button + button {
       margin-top: $gutter / 2;
     }
+
+    &--social {
+      padding-bottom: $gutter / 2;
+    }
   }
 
   &--vertical {
