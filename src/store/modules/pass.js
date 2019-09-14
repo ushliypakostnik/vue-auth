@@ -35,9 +35,9 @@ const actions = {
         });
     });
   },
-  [SET_PASSWORD]: (user) => {
+  [SET_PASSWORD]: ({ commit }, user) => { // eslint-disable-line no-unused-vars
     return new Promise((resolve, reject) => {
-      api.postNewPassword({ id: user.id, password: user.password })
+      api.postNewPassword(user)
         .then((response) => {
           router.replace({ name: 'Home' });
           resolve(response);
