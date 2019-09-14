@@ -1,4 +1,3 @@
-/* eslint-disable promise/param-names */
 import {
   REMIND_PASSWORD,
   REMIND_PASSWORD_SUCCESS,
@@ -6,13 +5,14 @@ import {
   SET_PASSWORD,
   SET_PASSWORD_ERROR,
 } from '@/store/actions/pass';
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import { AUTH_SUCCESS } from '@/store/actions/auth';
+/* eslint-enable no-unused-vars */
 
 import router from '@/router';
 
 import api from '@/utils/api';
-import storage from '@/utils/storage'; // eslint-disable line
+import storage from '@/utils/storage';
 
 const state = {
   error: '',
@@ -29,7 +29,6 @@ const getters = {
 /* eslint-enable no-shadow */
 
 const actions = {
-  // eslint-disable-next-line arrow-body-style
   [REMIND_PASSWORD]: ({ commit }, email) => {
     return new Promise((resolve, reject) => {
       api.postRemindPassword(email)
@@ -43,15 +42,13 @@ const actions = {
         });
     });
   },
-  // eslint-disable-next-line arrow-body-style
-  [SET_PASSWORD]: ({ commit, dispatch }, user) => {
+  [SET_PASSWORD]: ({ commit }, user) => {
     const { token } = user;
     return new Promise((resolve, reject) => {
       api.postNewPassword({ id: user.id, password: user.password })
         .then((response) => {
           storage.setAuth(token);
           commit('auth/AUTH_SUCCESS', token, { root: true });
-          // dispatch('user/USER_REQUEST', null, { root: true });
           router.replace({ name: 'Home' });
           resolve(response);
         })

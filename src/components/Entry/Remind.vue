@@ -36,8 +36,9 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import { REMIND_PASSWORD } from '../../store/actions/pass';
+/* eslint-enable no-unused-vars */
 
 import {
   validateEmail,

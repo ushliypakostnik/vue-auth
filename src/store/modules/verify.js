@@ -1,4 +1,3 @@
-/* eslint-disable promise/param-names */
 import {
   SET_VERIFY,
   SET_VERIFY_RESULT,
@@ -17,7 +16,6 @@ const getters = {
 /* eslint-enable no-shadow */
 
 const actions = {
-  // eslint-disable-next-line arrow-body-style
   [SET_VERIFY]: ({ commit }, id) => {
     return new Promise((resolve, reject) => {
       api.postVerify(id)

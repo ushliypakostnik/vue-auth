@@ -58,12 +58,13 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import {
   AUTH_REQUEST,
   AUTH_FACEBOOK_REQUEST,
-  AUTH_VKONTAKTE_REQUEST
+  AUTH_VKONTAKTE_REQUEST,
 } from '@/store/actions/auth';
+/* eslint-enable no-unused-vars */
 
 import {
   validateEmail,
@@ -115,12 +116,12 @@ export default {
     },
 
     loginFB() {
-      // this.$store.dispatch('auth/AUTH_FACEBOOK_REQUEST');
+      this.$store.dispatch('auth/AUTH_FACEBOOK_REQUEST');
     },
 
     loginVK() {
-      // this.$store.dispatch('auth/AUTH_VKONTAKTE_REQUEST');
-    }
+      this.$store.dispatch('auth/AUTH_VKONTAKTE_REQUEST');
+    },
   },
 };
 </script>

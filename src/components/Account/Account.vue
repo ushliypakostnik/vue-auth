@@ -36,11 +36,13 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-import { AUTH_LOGOUT } from '@/store/actions/auth'; // eslint-disable-line no-unused-vars
+/* eslint-disable no-unused-vars */
+import { AUTH_LOGOUT } from '@/store/actions/auth';
 import {
-  USER_REQUEST, // eslint-disable-line no-unused-vars
-  SEND_VERIFY_EMAIL, // eslint-disable-line no-unused-vars
+  USER_REQUEST,
+  SEND_VERIFY_EMAIL,
 } from '@/store/actions/user';
+/* eslint-enable no-unused-vars */
 
 import { MESSAGES } from '@/utils/constants';
 

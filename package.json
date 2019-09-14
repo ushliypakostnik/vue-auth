@@ -45,7 +45,9 @@
       "plugin:vue/essential",
       "@vue/airbnb"
     ],
-    "rules": {},
+    "rules": {
+      "arrow-body-style": "off"
+    },
     "parserOptions": {
       "parser": "babel-eslint"
     },

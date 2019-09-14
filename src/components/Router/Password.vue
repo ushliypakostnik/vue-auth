@@ -49,8 +49,9 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import { SET_PASSWORD } from '@/store/actions/pass';
+/* eslint-enable no-unused-vars */
 
 import { MESSAGES } from '@/utils/constants';
 import {
@@ -91,7 +92,6 @@ export default {
       const password2 = this.$refs.p2.value;
       this.pass1Ers = setPasswordError(password);
       this.pass2Ers = setPasswordError(password2);
-      // eslint-disable-next-line
       if (validatePassword(password) && validatePassword(password2)) {
         if (password !== password2) {
           this.match = MESSAGES.passwords_do_not_match;

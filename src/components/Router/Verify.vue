@@ -1,7 +1,6 @@
 <template>
   <Page class="password page--outer">
     <div class="container">
-      {{ result }}
       <Loading />
     </div>
   </Page>
@@ -10,8 +9,9 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-// eslint-disable-next-line no-unused-vars
+/* eslint-disable no-unused-vars */
 import { SET_VERIFY } from '@/store/actions/verify';
+/* eslint-enable no-unused-vars */
 
 import Page from '@/components/Views/Page.vue';
 import Loading from '@/components/Utils/Loading.vue';

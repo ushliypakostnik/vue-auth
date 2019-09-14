@@ -1,5 +1,3 @@
-import Vue from 'vue';
-
 import {
   USER_REQUEST,
   USER_ERROR,
@@ -11,7 +9,7 @@ import {
 import { AUTH_LOGOUT } from '@/store/actions/auth';
 
 import api from '@/utils/api';
-import storage from '@/utils/storage'; // eslint-disable line
+import storage from '@/utils/storage';
 
 const state = {
   status: '',
