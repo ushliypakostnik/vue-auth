@@ -46,7 +46,8 @@
       "@vue/airbnb"
     ],
     "rules": {
-      "arrow-body-style": "off"
+      "arrow-body-style": "off",
+      "implicit-arrow-linebreak": "off"
     },
     "parserOptions": {
       "parser": "babel-eslint"

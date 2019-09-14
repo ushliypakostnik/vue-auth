@@ -47,7 +47,9 @@
 </template>
 
 <script>
-import { createNamespacedHelpers } from 'vuex';
+import { mapMutations } from 'vuex';
+
+import storage from '@/utils/storage';
 
 /* eslint-disable no-unused-vars */
 import { SET_PASSWORD } from '@/store/actions/pass';
@@ -62,8 +64,6 @@ import {
 import Page from '@/components/Views/Page.vue';
 import Logo from '@/components/Views/Logo.vue';
 
-const { mapGetters } = createNamespacedHelpers('pass');
-
 export default {
   name: 'Password',
 
@@ -73,6 +73,7 @@ export default {
   },
 
   data: () => ({
+    id: '',
     password1: '',
     password2: '',
     pass1Ers: '',
@@ -80,13 +81,19 @@ export default {
     match: '',
   }),
 
-  computed: {
-    ...mapGetters({
-      error: 'error2',
-    }),
+  mounted() {
+    const query = this.$route.hash;
+    this.id = query.split('&')[0].slice(4);
+    const token = query.split('&')[1].slice(6);
+    storage.setAuth(token);
+    this.AUTH_SUCCESS(token);
   },
 
   methods: {
+    ...mapMutations('auth', [
+      'AUTH_SUCCESS',
+    ]),
+
     submit() {
       const password = this.$refs.p1.value;
       const password2 = this.$refs.p2.value;
@@ -96,10 +103,7 @@ export default {
         if (password !== password2) {
           this.match = MESSAGES.passwords_do_not_match;
         } else {
-          const query = this.$route.hash;
-          const id = query.split('&')[0].slice(4);
-          const token = query.split('&')[1].slice(6);
-          this.$store.dispatch('pass/SET_PASSWORD', { id, password, token });
+          this.$store.dispatch('pass/SET_PASSWORD', { id: this.id, password });
         }
       }
     },

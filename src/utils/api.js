@@ -2,7 +2,6 @@ import axios from 'axios';
 
 import { API_URL } from '@/utils/constants';
 
-// eslint-disable implicit-arrow-linebreak
 export default ({
 
   // Auth
@@ -43,4 +42,3 @@ export default ({
   getTest: () =>
     axios.get(`${API_URL}/test`),
 });
-// eslint-enable implicit-arrow-linebreak

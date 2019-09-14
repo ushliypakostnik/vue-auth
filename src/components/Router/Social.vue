@@ -7,11 +7,9 @@
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations } from 'vuex';
 
-import storage from '@/utils/storage'
-
-import { AUTH_SUCCESS } from '@/store/actions/auth';
+import storage from '@/utils/storage';
 
 import Page from '@/components/Views/Page.vue';
 import Loading from '@/components/Utils/Loading.vue';
@@ -35,6 +33,6 @@ export default {
     ...mapMutations('auth', [
       'AUTH_SUCCESS',
     ]),
-  }
+  },
 };
 </script>
