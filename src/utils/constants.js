@@ -1,6 +1,6 @@
 const isProd = process.env.NODE_ENV === 'production';
-const apiUrl = process.env.API_URL;
-const clientHost = process.env.CLIENT_HOST;
+const apiUrl = process.env.VUE_APP_API_URL;
+const clientHost = process.env.VUE_APP_CLIENT_HOST;
 
 export const API_URL = isProd ? apiUrl || 'https://express-auth.kafedra.org' : apiUrl || 'https://localhost:8082';
 
