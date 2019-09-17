@@ -1,5 +1,6 @@
 <template>
   <Page class="entry page--outer">
+    {{ $t('verifcation.verify_account') }}
     <div class="container">
       <Logo />
       <Login

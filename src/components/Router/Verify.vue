@@ -9,8 +9,6 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-import storage from '@/utils/storage';
-
 /* eslint-disable no-unused-vars */
 import { SET_VERIFY } from '@/store/actions/verify';
 /* eslint-enable no-unused-vars */
