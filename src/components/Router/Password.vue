@@ -55,7 +55,7 @@ import storage from '@/utils/storage';
 import { SET_PASSWORD } from '@/store/actions/pass';
 /* eslint-enable no-unused-vars */
 
-import { MESSAGES } from '@/utils/constants';
+import i18n from '@/utils/i18n';
 import {
   validatePassword,
   setPasswordError,
@@ -101,7 +101,7 @@ export default {
       this.pass2Ers = setPasswordError(password2);
       if (validatePassword(password) && validatePassword(password2)) {
         if (password !== password2) {
-          this.match = MESSAGES.passwords_do_not_match;
+          this.match = i18n.t('verifcation.passwords_do_not_match');
         } else {
           this.$store.dispatch('pass/SET_PASSWORD', { id: this.id, password });
         }

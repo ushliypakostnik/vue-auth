@@ -5,7 +5,7 @@
       width="60px"
       class="pulse-slow"
       alt="Vue logo">
-    <h1>Vue cli based<br />frontend boilerplate</h1>
+    <h1>{{ $t('entry.title') }}</h1>
   </div>
 </template>
 

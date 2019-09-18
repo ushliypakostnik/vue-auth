@@ -44,7 +44,7 @@ import {
 } from '@/store/actions/user';
 /* eslint-enable no-unused-vars */
 
-import { MESSAGES } from '@/utils/constants';
+import i18n from '@/utils/i18n';
 
 import Loading from '@/components/Utils/Loading.vue';
 import Page from '@/components/Views/Page.vue';
@@ -68,7 +68,7 @@ export default {
   },
 
   mounted() {
-    if (!this.profile.isVerify) this.message = MESSAGES.verify_account;
+    if (!this.profile.isVerify) this.message = i18n.t('verifcation.verify_account');
   },
 
   computed: {
@@ -90,7 +90,7 @@ export default {
     },
 
     send() {
-      this.message = MESSAGES.resend_verify_email;
+      this.message = i18n.t('verifcation.resend_verify_email');
       this.$store.dispatch('user/SEND_VERIFY_EMAIL');
     },
   },
