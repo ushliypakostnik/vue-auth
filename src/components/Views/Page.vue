@@ -1,12 +1,19 @@
 <template>
   <div class="page">
     <slot></slot>
+    <Footer class="page__footer"></Footer>
   </div>
 </template>
 
 <script>
+import Footer from '@/components/Views/Footer.vue';
+
 export default {
   name: 'Page',
+
+  components: {
+    Footer,
+  },
 };
 </script>
 
@@ -22,6 +29,18 @@ export default {
 
     &--outer {
       background: $color_background;
+    }
+
+    &__footer {
+      width: 100%;
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $color_background;
+      padding-top: $gutter / 2;
+      padding-bottom: $gutter / 2;
+      border: 1px solid $color_border;
     }
 
     .container {

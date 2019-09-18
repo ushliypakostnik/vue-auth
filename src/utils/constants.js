@@ -1,3 +1,5 @@
+import Cookies from 'js-cookie';
+
 const isProd = process.env.NODE_ENV === 'production';
 const apiUrl = process.env.API_URL;
 const clientHost = process.env.CLIENT_HOST;
@@ -14,19 +16,28 @@ export const COOKIES = {
   LANG: {
     name: 'language',
     expires: 7,
-  }
+  },
 };
+
+export const LANGUAGES = [
+  { id: 1, name: 'en'},
+  { id: 2, name: 'ru'},
+];
+
+// Auto language
+const language = Cookies.get(COOKIES.LANG.name) || null;
+export const AUTO_LANG = language ? language : LANGUAGES[1].name;
 
 export const UTILS = {
   min_password_lenght: 6,
 };
 
-export const LOCAL = {
+export const LOCALSTORAGE = {
   profile: 'profile',
 };
 
 export const LOCALES = {
-  en: {
+  [LANGUAGES[0].name]: {
     verifcation: {
       verify_account: 'Verify your account! A confirmation email has been sent to your inbox',
       resend_verify_email: 'Letter sent successfully',
@@ -41,7 +52,7 @@ export const LOCALES = {
       title: 'Vue cli based frontend boilerplate with authentication',
     },
   },
-  ru: {
+  [LANGUAGES[1].name]: {
     verifcation: {
       verify_account: 'Подтвердите ваш аккаунт! Письмо с подтверждением было отправлено на Ваш почтовый ящик',
       resend_verify_email: 'Письмо успешно отправлено',

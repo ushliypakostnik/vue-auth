@@ -1,11 +1,15 @@
 import {
   SET_LANGUAGE,
+  CHANGE_LANGUAGE,
 } from '@/store/actions/utils';
 
-import api from '@/utils/api';
+import i18n from '@/utils/i18n';
+import storage from '@/utils/storage';
+
+import { AUTO_LANG } from '@/utils/constants';
 
 const state = {
-  language: '',
+  language: AUTO_LANG || '',
 };
 
 /* eslint-disable no-shadow */
@@ -15,25 +19,26 @@ const getters = {
 /* eslint-enable no-shadow */
 
 const actions = {
-  [SET_LANGUAGE]: ({ commit }, language) => {
+  [CHANGE_LANGUAGE]: ({ commit }, language) => {
     return new Promise((resolve, reject) => {
-      api.postVerify(id)
-        .then((response) => {
-          commit(SET_VERIFY_RESULT, response.data.message);
-          resolve(response);
-        })
-        .catch((err) => {
-          commit(SET_VERIFY_RESULT, err.response.data.message);
-          reject(err);
-        });
+      i18n.changeLanguage(language)
+        .then((t) => {
+          commit(SET_LANGUAGE, language);
+          storage.rememberLanguage(language);
+          resolve();
+        },
+        (error) => {
+          reject(error);
+        }
+      );
     });
   },
 };
 
 /* eslint-disable no-shadow */
 const mutations = {
-  [SET_VERIFY_RESULT]: (state, response) => {
-    state.result = response;
+  [SET_LANGUAGE]: (state, language) => {
+    state.language = language;
   },
 };
 /* eslint-enable no-shadow */

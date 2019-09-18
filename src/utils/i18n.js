@@ -1,18 +1,21 @@
 import Vue from 'vue';
 import i18next from 'i18next';
 import VueI18Next from '@panter/vue-i18next';
-import axios from 'axios';
 
-import { LOCALES } from '@/utils/constants';
+import {
+  LANGUAGES,
+  LOCALES,
+  AUTO_LANG,
+} from '@/utils/constants';
 
 Vue.use(VueI18Next);
 
 i18next.init({
-  lng: 'ru',
-  fallbackLng: 'en',
+  lng: AUTO_LANG,
+  fallbackLng: LANGUAGES[0].name,
   resources: {
-    en: { translation: LOCALES.en },
-    ru: { translation: LOCALES.ru },
+    [LANGUAGES[0].name]: { translation: LOCALES[LANGUAGES[0].name] },
+    [LANGUAGES[1].name]: { translation: LOCALES[LANGUAGES[1].name] },
   },
 });
 

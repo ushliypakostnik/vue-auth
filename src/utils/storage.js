@@ -1,7 +1,7 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-import { COOKIES, LOCAL, CLIENT_HOST } from '@/utils/constants';
+import { COOKIES, LOCALSTORAGE, CLIENT_HOST } from '@/utils/constants';
 
 // Client type
 // eslint-disable-next-line dot-notation
@@ -28,16 +28,24 @@ export default ({
     Cookies.remove(COOKIES.TOKEN.name);
     // eslint-disable-next-line dot-notation
     delete axios.defaults.headers.common['Authorization'];
+    delete axios.defaults.headers.common['Language'];
   },
 
   // User
 
   setUserProfile: (responce) => {
     const { user } = responce.data;
-    localStorage.setItem(LOCAL.profile, JSON.stringify(user));
+    localStorage.setItem(LOCALSTORAGE.profile, JSON.stringify(user));
   },
 
   deleteUserProfile: () => {
-    localStorage.removeItem(LOCAL.profile);
+    localStorage.removeItem(LOCALSTORAGE.profile);
+  },
+
+  // Utils
+
+  rememberLanguage: (language) => {
+    Cookies.set(COOKIES.LANG.name, language, { expires: COOKIES.LANG.expires });
+    axios.defaults.headers.common['Language'] = `${Language}`;
   },
 });
