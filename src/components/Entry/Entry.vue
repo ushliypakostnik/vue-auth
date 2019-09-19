@@ -12,9 +12,8 @@
       />
       <a
         href="#"
-        rel="noopener noreferrer"
         @click.prevent="usercase"
-      >{{ login ? "Remind Рassword ?" : "Login / Registration" }}</a>
+      >{{ login ? $t('entry.usercase.remind') : $t('entry.usercase.login') }}</a>
     </div>
   </Page>
 </template>

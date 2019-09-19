@@ -3,26 +3,26 @@
     <div
       v-if="isProfileLoaded"
       class="container">
-      <h1>Account</h1>
-      <h3>Email: <strong>{{ profile.usermail }}</strong></h3>
-      <h3>isVerify: <strong>{{ profile.isVerify }}</strong></h3>
+      <h1>{{ $t('account.header') }}</h1>
+      <h3>{{ $t('account.label_email') }}: <strong>{{ profile.usermail }}</strong></h3>
+      <h3>{{ $t('account.label_verify') }}: <strong>{{ profile.isVerify }}</strong></h3>
       <form
         class="form form--vertical">
         <fieldset class="form__group">
           <button
-            type="submit"
-            aria-label="Submit button"
+            type="button"
+            :aria-label="$t('account.logout_button.aria')"
             @click.prevent="logout"
-          >Sign Out</button>
+          >{{ $t('account.logout_button.text') }}</button>
         </fieldset>
         <fieldset
           v-if="!profile.isVerify"
           class="form__group">
           <button
-            type="submit"
-            aria-label="Send Verify Email"
+            type="button"
+            :aria-label="$t('account.verify_button.aria')"
             @click.prevent="send"
-          >Send Verify Email</button>
+          >{{ $t('account.verify_button.text') }}</button>
           <div
             class="form__message form__message--success"
           >{{ message }}</div>

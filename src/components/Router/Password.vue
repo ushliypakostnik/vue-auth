@@ -8,8 +8,8 @@
           <input
             v-model="password1"
             type="password"
-            arial-label="Password"
-            placeholder="Password"
+            :arial-label="$t('password.password1.aria')"
+            :placeholder="$t('password.password1.placeholder')"
             required
             ref="p1"
           />
@@ -21,8 +21,8 @@
           <input
             v-model="password2"
             type="password"
-            arial-label="Password again"
-            placeholder="Password again"
+            :arial-label="$t('password.password2.aria')"
+            :placeholder="$t('password.password2.placeholder')"
             required
             ref="p2"
           />
@@ -34,9 +34,9 @@
           <button
             type="submit"
             role="button"
-            aria-label="Submit button"
+            :aria-label="$t('password.button.aria')"
             @click.prevent="submit"
-          >Set password</button>
+          >{{ $t('password.button.text') }}</button>
           <div
             class="form__message form__message--error"
           >{{ match }}</div>

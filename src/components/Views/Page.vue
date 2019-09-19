@@ -30,12 +30,14 @@ export default {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    padding-bottom: $footer_height;
 
     &--outer {
       background: $color_background;
     }
 
     &__footer {
+      height: $footer_height;
       text-align: center;
       width: 100%;
       position: fixed;
@@ -50,7 +52,7 @@ export default {
 
     .container {
       max-width: 300px;
-      margin-bottom: 12vh;
+      margin-bottom: 13vh;
       text-align: center;
 
       @include xs {
