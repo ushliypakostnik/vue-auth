@@ -1,18 +1,22 @@
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
-import { COOKIES, LOCALSTORAGE, CLIENT_HOST } from '@/utils/constants';
+import {
+  COOKIES,
+  LOCALSTORAGE,
+  AUTO_LANG,
+} from '@/utils/constants';
 
 /* eslint-disable dot-notation */
-
-// Client type
-axios.defaults.headers.common['Client'] = `${CLIENT_HOST}`;
 
 // Auto auth
 export const AutoAuth = Cookies.get(COOKIES.TOKEN.name);
 if (AutoAuth) {
   axios.defaults.headers.common['Authorization'] = `Token ${AutoAuth}`;
 }
+
+// Auto language
+Cookies.set(COOKIES.LANG.name, AUTO_LANG, { expires: COOKIES.LANG.expires });
 
 export default ({
 
@@ -26,7 +30,6 @@ export default ({
   deleteAuth: () => {
     Cookies.remove(COOKIES.TOKEN.name);
     delete axios.defaults.headers.common['Authorization'];
-    delete axios.defaults.headers.common['Language'];
   },
 
   // User
@@ -44,7 +47,6 @@ export default ({
 
   rememberLanguage: (language) => {
     Cookies.set(COOKIES.LANG.name, language, { expires: COOKIES.LANG.expires });
-    axios.defaults.headers.common['Language'] = `${language}`;
   },
 });
 
