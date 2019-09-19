@@ -20,13 +20,13 @@ export const COOKIES = {
 };
 
 export const LANGUAGES = [
-  { id: 1, name: 'en'},
-  { id: 2, name: 'ru'},
+  { id: 1, name: 'en' },
+  { id: 2, name: 'ru' },
 ];
 
 // Auto language
 const language = Cookies.get(COOKIES.LANG.name) || null;
-export const AUTO_LANG = language ? language : LANGUAGES[1].name;
+export const AUTO_LANG = language || LANGUAGES[1].name;
 
 export const UTILS = {
   min_password_lenght: 6,

@@ -60,3 +60,30 @@
     @include btn-color($color_white, $color_vk);
   }
 }
+
+.switch {
+  display: inline-block;
+  background: $color_white;
+  border: 1px solid $color_border;
+  border-radius: $border-radius_small;
+  white-space: nowrap;
+  padding: ($gutter / 4) ($gutter / 2);
+
+  > li {
+    display: inline-block;
+    @include text($font-family_sans, $font-size_normal, $font-weight_sans_bold);
+
+    a {
+      @include link-color($color_primary, darken($color_primary, $fade-percent));
+    }
+
+    &:not(:last-child) {
+      &:after {
+        text-align: center;
+        margin-left: $gutter / 4;
+        margin-right: $gutter / 4;
+        content: " / ";
+      }
+    }
+  }
+}

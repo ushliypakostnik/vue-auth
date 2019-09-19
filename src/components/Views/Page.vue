@@ -1,18 +1,22 @@
 <template>
   <div class="page">
     <slot></slot>
-    <Footer class="page__footer"></Footer>
+    <Footer class="page__footer">
+      <LangSwitch />
+    </Footer>
   </div>
 </template>
 
 <script>
 import Footer from '@/components/Views/Footer.vue';
+import LangSwitch from '@/components/Utils/LangSwitch.vue';
 
 export default {
   name: 'Page',
 
   components: {
     Footer,
+    LangSwitch,
   },
 };
 </script>
@@ -32,6 +36,7 @@ export default {
     }
 
     &__footer {
+      text-align: center;
       width: 100%;
       position: fixed;
       left: 0;
