@@ -1,9 +1,9 @@
 import Cookies from 'js-cookie';
 
 const isProd = process.env.NODE_ENV === 'production';
-const apiUrl = process.env.API_URL;
+const apiUrl = process.env.VUE_APP_API_URL;
+export const API_URL = isProd ? apiUrl || 'https://express-auth.kafedra.org' : apiUrl || 'http://localhost:8082';
 
-export const API_URL = isProd ? apiUrl || 'http://express-auth.kafedra.org' : apiUrl || 'http://localhost:8082';
 
 export const COOKIES = {
   TOKEN: {
@@ -14,7 +14,12 @@ export const COOKIES = {
     name: 'language',
     expires: 7,
   },
+  THEME: {
+    name: 'theme',
+    expires: 7,
+  },
 };
+
 
 export const LANGUAGES = [
   { id: 1, name: 'en' },
@@ -25,13 +30,25 @@ export const LANGUAGES = [
 const language = Cookies.get(COOKIES.LANG.name) || null;
 export const AUTO_LANG = language || LANGUAGES[1].name;
 
-export const UTILS = {
-  min_password_lenght: 6,
-};
+
+export const THEMES = [
+  { id: 1, name: 'light' },
+  { id: 2, name: 'dark' },
+];
+
+// Auto theme
+const theme = Cookies.get(COOKIES.THEME.name) || null;
+export const AUTO_THEME = theme || THEMES[1].name;
+
 
 export const LOCALSTORAGE = {
   profile: 'profile',
 };
+
+export const UTILS = {
+  min_password_lenght: 6,
+};
+
 
 export const LOCALES = {
   [LANGUAGES[0].name]: {
@@ -110,7 +127,7 @@ export const LOCALES = {
       },
       verify_button: {
         aria: 'resend verify email',
-        text: 'Resend verify email',
+        text: 'Resend email',
       },
     },
     page404: {

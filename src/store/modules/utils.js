@@ -1,32 +1,44 @@
 import {
-  SET_LANGUAGE,
+  CHANGE_THEME,
   CHANGE_LANGUAGE,
 } from '@/store/actions/utils';
 
 import storage from '@/utils/storage';
 
-import { AUTO_LANG } from '@/utils/constants';
+import {
+  AUTO_THEME,
+  AUTO_LANG,
+} from '@/utils/constants';
 
 const state = {
-  language: AUTO_LANG || '',
+  theme: AUTO_THEME,
+  language: AUTO_LANG,
 };
 
 /* eslint-disable no-shadow */
 const getters = {
+  theme: state => state.theme,
   language: state => state.language,
 };
 /* eslint-enable no-shadow */
 
 const actions = {
+  [CHANGE_THEME]: ({ commit }, theme) => {
+    commit(CHANGE_THEME, theme);
+    storage.rememberTheme(theme);
+  },
   [CHANGE_LANGUAGE]: ({ commit }, language) => {
-    commit(SET_LANGUAGE, language);
+    commit(CHANGE_LANGUAGE, language);
     storage.rememberLanguage(language);
   },
 };
 
 /* eslint-disable no-shadow */
 const mutations = {
-  [SET_LANGUAGE]: (state, language) => {
+  [CHANGE_THEME]: (state, theme) => {
+    state.theme = theme;
+  },
+  [CHANGE_LANGUAGE]: (state, language) => {
     state.language = language;
   },
 };

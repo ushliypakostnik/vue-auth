@@ -7,8 +7,6 @@
   min-width: 300px;
   margin-bottom: $gutter;
   padding: $gutter $gutter ($gutter / 2) $gutter;
-  background: $color_white;
-  border: 1px solid $color_border;
   border-radius: $border-radius_large;
 
   &__group {
@@ -85,5 +83,9 @@
         content: " / ";
       }
     }
+  }
+
+  & + .switch {
+    margin-left: $gutter;
   }
 }

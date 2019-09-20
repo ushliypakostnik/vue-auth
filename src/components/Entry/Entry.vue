@@ -1,5 +1,5 @@
 <template>
-  <Page class="entry page--outer">
+  <Page class="entry">
     <div class="container">
       <Logo />
       <Login

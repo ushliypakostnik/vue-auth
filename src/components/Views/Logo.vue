@@ -22,7 +22,7 @@ export default {
     text-align: center;
 
     h1 {
-      margin-top: 0
+      margin-top: 0;
     }
   }
 </style>

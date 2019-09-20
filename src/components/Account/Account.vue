@@ -96,3 +96,13 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  @import "@/styles/_stylebase.scss";
+
+  .account {
+    h1 {
+      color: $color_white;
+    }
+  }
+</style>

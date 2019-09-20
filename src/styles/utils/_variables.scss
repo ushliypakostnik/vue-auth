@@ -18,18 +18,12 @@ $shadow_coords-y: 1px;
 $shadow_size: 4px;
 $shadow_stretch: 0;
 
-$text-shadow_coords-x: 0;
-$text-shadow_coords-y: 1px;
-$text-shadow_size: 4px;
-
 
 // Sizes
 //////////////////////////////////////////////////////
 
 $gutter: 20px;
-
 $input_height: $gutter * 2;
-
 $footer_height: $gutter * 3;
 
 
@@ -57,23 +51,10 @@ $color_warning: $color_orange;
 $color_error: $color_red;
 $color_success: $color_green;
 
-// Special
-
-$color_light: #fafafa;
-
-$color_dark: #2f4050;
-
-$color_dark_alfa: rgba($color_dark, 0.66);
-
-// Text
-
-$color_text: #6c7a89;
-$color_gray:  lighten($color_text, ($fade-percent * 5.5));
-
 // Links
 
-$color_link: #557aa7;
-$color_link-hover: #44529c;
+$color_link: darken($color_primary, $fade-percent);
+$color_link-hover: $color_primary;
 
 // Shadows
 
@@ -86,14 +67,17 @@ $color_vk: #45668e;
 
 // Functional
 
-$color_disabled: darken($color_light, ($fade-percent * 4));
+$color_disabled: #a4adb7;
 $color_placeholder: $color_disabled;
 
-$color_background: $color_light;
 
-// Borders
+// Themes default variables
+//////////////////////////////////////////////////////
 
-$color_border: $color_gray;
+$color_background: !default;
+$color_text: !default;
+$color_card: !default;
+$color_border: !default;
 
 
 // Breackpoints and containers
@@ -130,21 +114,6 @@ $breackpoint_sm_max:              ($breackpoint_md_min - 1) !global;
 $breackpoint_md_max:              ($breackpoint_lg_min - 1) !global;
 $breackpoint_lg_max:              ($breackpoint_xl_min - 1) !global;
 $breackpoint_xl_max:              ($breackpoint_mg_min - 1) !global;
-
-// Container sizes
-
-$content-container_sm: 720px;
-$content-container_md: 940px;
-$content-container_lg: 1140px;
-
-// Small screen / tablet
-$container_sm:                 ($content-container_sm + $gutter);
-
-// Medium screen / desktop
-$container_md:                 ($content-container_md + $gutter);
-
-// Large screen / wide desktop
-$container_lg:                 ($content-container_lg + $gutter);
 
 
 // Elements

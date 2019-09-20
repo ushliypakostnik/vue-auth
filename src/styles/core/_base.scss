@@ -14,7 +14,7 @@ html {
 body {
   min-height: 100%;
   color: $color_text;
-  background: $color_white;
+  background: $color_background;
   margin: 0;
   padding: 0;
   quotes: "\00ab" "\00bb";
@@ -78,6 +78,7 @@ a {
 button {
   cursor: pointer;
   border: none;
+  text-transform: uppercase;
   border-radius: $border-radius_large;
   padding: $btn_padding_horizontal_base $btn_padding_vertical_base;
   @include btn-color($color_white, $color_primary);
@@ -89,7 +90,6 @@ button {
 
 input {
   height: $input_height;
-  border: 1px solid $color_border;
   border-radius: $border-radius_small;
   padding: 0 ($gutter / 2);
   @include text($font-family_sans, $font-size_normal, $font-weight_sans_regular);

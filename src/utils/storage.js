@@ -15,6 +15,8 @@ if (AutoAuth) {
   axios.defaults.headers.common['Authorization'] = `Token ${AutoAuth}`;
 }
 
+axios.defaults.withCredentials = true;
+
 // Auto language
 Cookies.set(COOKIES.LANG.name, AUTO_LANG, { expires: COOKIES.LANG.expires });
 
@@ -47,6 +49,10 @@ export default ({
 
   rememberLanguage: (language) => {
     Cookies.set(COOKIES.LANG.name, language, { expires: COOKIES.LANG.expires });
+  },
+
+  rememberTheme: (theme) => {
+    Cookies.set(COOKIES.THEME.name, theme, { expires: COOKIES.THEME.expires });
   },
 });
 

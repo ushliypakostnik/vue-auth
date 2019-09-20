@@ -1,12 +1,12 @@
 <template>
   <ul class="switch">
     <li
-      v-for="value in languages"
+      v-for="value in themes"
       v-bind:key="value"
     >
-      <a v-if="value !== language"
+      <a v-if="value !== theme"
         href="#"
-        @click.prevent="changeLanguage(value)"
+        @click.prevent="changeTheme(value)"
       >{{ value }}</a>
       <span v-else>{{ value }}</span>
     </li>
@@ -16,30 +16,30 @@
 <script>
 import { createNamespacedHelpers } from 'vuex';
 
-import { LANGUAGES } from '@/utils/constants';
+import { THEMES } from '@/utils/constants';
 
 const { mapGetters } = createNamespacedHelpers('utils');
 
 export default {
-  name: 'LangSwitch',
+  name: 'ThemeSwitch',
 
   computed: {
     ...mapGetters({
-      language: 'language',
+      theme: 'theme',
     }),
 
-    languages() {
-      const languages = LANGUAGES.map((language) => {
-        return language.name;
+    themes() {
+      const themes = THEMES.map((theme) => {
+        return theme.name;
       });
-      return languages;
+      return themes;
     },
   },
 
+
   methods: {
-    changeLanguage(language) {
-      this.$i18n.i18next.changeLanguage(language);
-      this.$store.dispatch('utils/CHANGE_LANGUAGE', language);
+    changeTheme(theme) {
+      this.$store.dispatch('utils/CHANGE_THEME', theme);
     },
   },
 };

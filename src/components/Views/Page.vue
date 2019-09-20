@@ -2,7 +2,7 @@
   <div class="page">
     <slot></slot>
     <Footer class="page__footer">
-      <LangSwitch />
+      <LangSwitch /><ThemeSwitch />
     </Footer>
   </div>
 </template>
@@ -10,6 +10,7 @@
 <script>
 import Footer from '@/components/Views/Footer.vue';
 import LangSwitch from '@/components/Utils/LangSwitch.vue';
+import ThemeSwitch from '@/components/Utils/ThemeSwitch.vue';
 
 export default {
   name: 'Page',
@@ -17,6 +18,7 @@ export default {
   components: {
     Footer,
     LangSwitch,
+    ThemeSwitch,
   },
 };
 </script>
@@ -32,10 +34,6 @@ export default {
     align-items: center;
     padding-bottom: $footer_height;
 
-    &--outer {
-      background: $color_background;
-    }
-
     &__footer {
       height: $footer_height;
       text-align: center;
@@ -44,15 +42,13 @@ export default {
       left: 0;
       right: 0;
       bottom: 0;
-      background: $color_background;
       padding-top: $gutter / 2;
       padding-bottom: $gutter / 2;
-      border: 1px solid $color_border;
     }
 
     .container {
       max-width: 300px;
-      margin-bottom: 13vh;
+      margin-bottom: 12vh;
       text-align: center;
 
       @include xs {
