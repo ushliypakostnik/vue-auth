@@ -5,7 +5,8 @@
       class="container">
       <h1>{{ $t('account.header') }}</h1>
       <h3>{{ $t('account.label_email') }}: <strong>{{ profile.usermail }}</strong></h3>
-      <h3>{{ $t('account.label_verify') }}: <strong>{{ profile.isVerify }}</strong></h3>
+      <h3 v-if="profile.isVerify">{{ $t('account.verify.yes') }}</h3>
+      <h3 v-else>{{ $t('account.verify.no') }}</h3>
       <form
         class="form form--vertical">
         <fieldset class="form__group">

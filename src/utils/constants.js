@@ -119,7 +119,10 @@ export const LOCALES = {
     account: {
       header: 'Account',
       label_email: 'Email',
-      label_verify: 'isVerify',
+      verify: {
+        yes: 'User verified',
+        no: 'User not verified',
+      },
       logout_button: {
         aria: 'Sign out button',
         text: 'Sign Out',
@@ -202,7 +205,10 @@ export const LOCALES = {
     account: {
       header: 'Аккаунт',
       label_email: 'Электронная почта',
-      label_verify: 'Верифицирован',
+      verify: {
+        yes: 'Пользователь верифицирован',
+        no: 'Пользователь не верифицирован',
+      },
       logout_button: {
         aria: 'Выйти из аккаунта',
         text: 'Выйти',
