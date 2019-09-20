@@ -5,8 +5,8 @@
       <fieldset class="form__group">
         <input
           v-model="usermail"
-          aria-label="Email"
-          label="E-mail"
+          :aria-label="$t('remind.email.aria')"
+          :placeholder="$t('remind.email.placeholder')"
           required
           ref="usermailref"
         />
@@ -17,9 +17,9 @@
       <fieldset class="form__group">
         <button
           type="submit"
-          aria-label="Submit button"
+          :aria-label="$t('remind.button.aria')"
           @click.prevent="submit"
-        >Remind Рassword</button>
+        >{{ $t('remind.button.text') }}</button>
         <div
           v-if="error"
           class="form__message form__message--error"

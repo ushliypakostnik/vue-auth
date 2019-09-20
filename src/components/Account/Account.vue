@@ -3,26 +3,26 @@
     <div
       v-if="isProfileLoaded"
       class="container">
-      <h1>Account</h1>
-      <h3>Email: <strong>{{ profile.usermail }}</strong></h3>
-      <h3>isVerify: <strong>{{ profile.isVerify }}</strong></h3>
+      <h1>{{ $t('account.header') }}</h1>
+      <h3>{{ $t('account.label_email') }}: <strong>{{ profile.usermail }}</strong></h3>
+      <h3>{{ $t('account.label_verify') }}: <strong>{{ profile.isVerify }}</strong></h3>
       <form
         class="form form--vertical">
         <fieldset class="form__group">
           <button
-            type="submit"
-            aria-label="Submit button"
+            type="button"
+            :aria-label="$t('account.logout_button.aria')"
             @click.prevent="logout"
-          >Sign Out</button>
+          >{{ $t('account.logout_button.text') }}</button>
         </fieldset>
         <fieldset
           v-if="!profile.isVerify"
           class="form__group">
           <button
-            type="submit"
-            aria-label="Send Verify Email"
+            type="button"
+            :aria-label="$t('account.verify_button.aria')"
             @click.prevent="send"
-          >Send Verify Email</button>
+          >{{ $t('account.verify_button.text') }}</button>
           <div
             class="form__message form__message--success"
           >{{ message }}</div>
@@ -44,7 +44,7 @@ import {
 } from '@/store/actions/user';
 /* eslint-enable no-unused-vars */
 
-import { MESSAGES } from '@/utils/constants';
+import i18n from '@/utils/i18n';
 
 import Loading from '@/components/Utils/Loading.vue';
 import Page from '@/components/Views/Page.vue';
@@ -68,7 +68,7 @@ export default {
   },
 
   mounted() {
-    if (!this.profile.isVerify) this.message = MESSAGES.verify_account;
+    if (!this.profile.isVerify) this.message = i18n.t('verifcation.verify_account');
   },
 
   computed: {
@@ -90,9 +90,19 @@ export default {
     },
 
     send() {
-      this.message = MESSAGES.resend_verify_email;
+      this.message = i18n.t('verifcation.resend_verify_email');
       this.$store.dispatch('user/SEND_VERIFY_EMAIL');
     },
   },
 };
 </script>
+
+<style lang="scss" scoped>
+  @import "@/styles/_stylebase.scss";
+
+  .account {
+    h1 {
+      @include text($font-family_sans, $font-size_large, $font-weight_sans_bold);
+    }
+  }
+</style>

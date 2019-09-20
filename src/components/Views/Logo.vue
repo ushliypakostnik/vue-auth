@@ -5,7 +5,7 @@
       width="60px"
       class="pulse-slow"
       alt="Vue logo">
-    <h1>Vue cli based<br />frontend boilerplate</h1>
+    <h1>{{ $t('logo.title') }}</h1>
   </div>
 </template>
 
@@ -22,7 +22,7 @@ export default {
     text-align: center;
 
     h1 {
-      margin-top: 0
+      margin-top: 0;
     }
   }
 </style>

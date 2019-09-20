@@ -8,8 +8,8 @@
           <input
             v-model="password1"
             type="password"
-            arial-label="Password"
-            placeholder="Password"
+            :arial-label="$t('password.password1.aria')"
+            :placeholder="$t('password.password1.placeholder')"
             required
             ref="p1"
           />
@@ -21,8 +21,8 @@
           <input
             v-model="password2"
             type="password"
-            arial-label="Password again"
-            placeholder="Password again"
+            :arial-label="$t('password.password2.aria')"
+            :placeholder="$t('password.password2.placeholder')"
             required
             ref="p2"
           />
@@ -34,9 +34,9 @@
           <button
             type="submit"
             role="button"
-            aria-label="Submit button"
+            :aria-label="$t('password.button.aria')"
             @click.prevent="submit"
-          >Set password</button>
+          >{{ $t('password.button.text') }}</button>
           <div
             class="form__message form__message--error"
           >{{ match }}</div>
@@ -55,7 +55,7 @@ import storage from '@/utils/storage';
 import { SET_PASSWORD } from '@/store/actions/pass';
 /* eslint-enable no-unused-vars */
 
-import { MESSAGES } from '@/utils/constants';
+import i18n from '@/utils/i18n';
 import {
   validatePassword,
   setPasswordError,
@@ -101,7 +101,7 @@ export default {
       this.pass2Ers = setPasswordError(password2);
       if (validatePassword(password) && validatePassword(password2)) {
         if (password !== password2) {
-          this.match = MESSAGES.passwords_do_not_match;
+          this.match = i18n.t('verifcation.passwords_do_not_match');
         } else {
           this.$store.dispatch('pass/SET_PASSWORD', { id: this.id, password });
         }

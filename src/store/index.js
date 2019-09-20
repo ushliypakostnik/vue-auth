@@ -5,6 +5,7 @@ import auth from './modules/auth';
 import verify from './modules/verify';
 import pass from './modules/pass';
 import user from './modules/user';
+import utils from './modules/utils';
 
 Vue.use(Vuex);
 
@@ -16,6 +17,7 @@ export default new Vuex.Store({
     verify,
     pass,
     user,
+    utils,
   },
   strict: debug,
 });

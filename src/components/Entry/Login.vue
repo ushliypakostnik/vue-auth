@@ -6,8 +6,8 @@
         <input
           v-model="usermail"
           type="email"
-          arial-label="Email"
-          placeholder="Email"
+          :arial-label="$t('login.email.aria')"
+          :placeholder="$t('login.email.placeholder')"
           required
           ref="usermailref"
         />
@@ -19,8 +19,8 @@
         <input
           v-model="password"
           type="password"
-          arial-label="Password"
-          placeholder="Password"
+          :arial-label="$t('login.password.aria')"
+          :placeholder="$t('login.password.placeholder')"
           required
           ref="passwordref"
         />
@@ -32,22 +32,22 @@
         <button
           type="button"
           class="btn--fb"
-          aria-label="Facebook button"
+          :aria-label="$t('login.fb_button.aria')"
           @click.prevent="loginFB"
-        >Via Facebook</button>
+        >{{ $t('login.fb_button.text') }}</button>
         <button
           type="button"
           class="btn--vk"
-          aria-label="Vkontakte button"
+          :aria-label="$t('login.vk_button.aria')"
           @click.prevent="loginVK"
-        >Via Vkontakte</button>
+        >{{ $t('login.vk_button.text') }}</button>
       </fieldset>
       <fieldset class="form__group">
         <button
           type="submit"
-          aria-label="Submit button"
+          :aria-label="$t('login.submit_button.aria')"
           @click.prevent="submit"
-        >Login / Registration</button>
+        >{{ $t('login.submit_button.text') }}</button>
         <div
           v-if="error"
           class="form__message form__message--error"

@@ -3,7 +3,7 @@
     <div class="container">
       <Logo />
       <h1>404</h1>
-      <h3>Page Not Found!</h3>
+      <h3>{{ $t('page404.text') }}</h3>
     </div>
   </Page>
 </template>
