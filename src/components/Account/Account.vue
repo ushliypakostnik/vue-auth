@@ -102,7 +102,7 @@ export default {
 
   .account {
     h1 {
-      color: $color_white;
+      @include text($font-family_sans, $font-size_large, $font-weight_sans_bold);
     }
   }
 </style>
