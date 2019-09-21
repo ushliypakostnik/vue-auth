@@ -1,6 +1,7 @@
 {
   "name": "vue-auth",
-  "version": "1.1.0",
+  "version": "2.0.0",
+  "description" : "Vue cli based frontend boilerplate",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -8,6 +9,12 @@
     "lint": "vue-cli-service lint",
     "test:unit": "vue-cli-service test:unit",
     "stylelint": "stylelint ./src/styles ./src/components"
+  },
+  "author": "Levon Gambaryan",
+  "license": "ISC",
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/ushliypakostnik/vue-auth"
   },
   "dependencies": {
     "@panter/vue-i18next": "^0.15.1",
