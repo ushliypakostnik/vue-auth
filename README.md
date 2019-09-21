@@ -6,7 +6,7 @@ Vue cli based frontend boilerplate
 
 [Демонстрация](https://vue-auth.kafedra.org/)
 
-Основанная на Vue cli реализация Progressive Web App клиента с модулем полноценной аунтефикации через [Backend API](https://github.com/ushliypakostnik/express-auth).
+Основанная на Vue cli реализация Progressive Web App клиента с модулем полноценной аунтефикации через [Backend API](https://github.com/ushliypakostnik/express-auth), локализацией и темезацией.
 
 Стилизация осуществляется по БЭМ с модульным SCSS.
 
