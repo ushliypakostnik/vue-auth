@@ -25,7 +25,7 @@
 
   &--vertical {
     input,
-    button {
+    button { // stylelint-disable no-descending-specificity
       width: 100%;
     }
   }
