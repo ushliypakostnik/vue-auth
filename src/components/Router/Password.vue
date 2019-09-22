@@ -1,5 +1,5 @@
 <template>
-  <Page class="password page--outer">
+  <Page class="password">
     <div class="container">
       <Logo />
       <form

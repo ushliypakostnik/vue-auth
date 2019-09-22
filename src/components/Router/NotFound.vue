@@ -1,5 +1,5 @@
 <template>
-  <Page class="page404 page--outer">
+  <Page class="page404">
     <div class="container">
       <Logo />
       <h1>404</h1>
