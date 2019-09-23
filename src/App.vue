@@ -25,6 +25,6 @@ export default {
 
 <style src="./styles/_stylebase.scss" lang="scss">
   #app {
-    min-height: 100%;
+    min-height: 100vh;
   }
 </style>
